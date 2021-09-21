@@ -1,3 +1,5 @@
+import os
+
 from decouple import config
 
 from pathlib import Path
@@ -30,7 +32,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ticket',
-    'review'
+    'review',
+    'follows'
 ]
 
 MIDDLEWARE = [
@@ -120,3 +123,9 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'flux'
 LOGOUT_REDIRECT_URL = 'login'
+
+# Base url to serve media files
+MEDIA_URL = '/media/'
+
+# Path where media is stored
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
