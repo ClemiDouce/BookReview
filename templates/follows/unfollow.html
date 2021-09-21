@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Suppression Follow{% endblock %}
+
+{% block content %}
+	<h1>Supprimer Follow</h1>
+	<form method="POST">
+		{% csrf_token %}
+		<p>Etes vous sur de supprimer ce following ?</p>
+		<input type="submit" value="Supprimer">
+		<a href="{% url 'follow:unfollow' %}">Annuler</a>
+	</form>
+{% endblock %}
