@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1>Gestions abonnements</h1>
+
+	<form method="POST">
+		{% csrf_token %}
+		<input type="text" name="searched-user" id="searched-user" placeholder="Utilisateur a chercher">
+		<input type="submit" value="Chercher">
+	</form>
+
+	<h2>Abonnements</h2>
+	{% if following_list %}
+		{% for following in following_list %}
+			<p>following.user.username</p>
+		{% endfor %}
+	{% else %}
+		<p>Vous n'avez pas d'abonnement</p>
+	{% endif %}
+
+	<h2>Abonnés</h2>
+	{% if followed_list %}
+		{% for followed in followed_list %}
+			<p>followed.followed_user.username</p>
+		{% endfor %}
+	{% else %}
+		<p>Vous n'avez pas d'abonné</p>
+	{% endif %}
+
+{% endblock %}
