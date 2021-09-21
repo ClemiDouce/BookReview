@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Creation Ticket{% endblock %}
+
+{% block content %}
+	<a href="{% url 'ticket:create-ticket' %}">Creer ticket</a>
+	<h1>Ticket List</h1>
+	{% for ticket in ticket_list %}
+		<h2>{{ ticket.title }}</h2>
+		<p>
+			{% if ticket.image %}
+				<img src="{{ ticket.image.url}}" alt="connect" style="max-height:300px">
+			{% endif %}
+			{{ ticket.description }} -
+			<a style="color:greenyellow" href="{% url 'ticket:update-ticket' pk=ticket.pk %}">Modifier</a>
+			<a style="color:red" href="{% url 'ticket:delete-ticket' pk=ticket.pk %}">Supprimer</a>
+		</p>
+		<br>
+	{% endfor %}
+
+{% endblock %}
