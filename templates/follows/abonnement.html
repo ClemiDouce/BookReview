@@ -5,6 +5,7 @@
 
 	<form method="POST">
 		{% csrf_token %}
+		{% if msg %}<p style="color:red">{{ msg }}</p>{% endif %}
 		<input type="text" name="searched-user" id="searched-user" placeholder="Utilisateur a chercher">
 		<input type="submit" value="Chercher">
 	</form>
@@ -12,7 +13,7 @@
 	<h2>Abonnements</h2>
 	{% if following_list %}
 		{% for following in following_list %}
-			<p>following.user.username</p>
+			<p>{{ following.followed_user.username }}</p>
 		{% endfor %}
 	{% else %}
 		<p>Vous n'avez pas d'abonnement</p>
@@ -21,7 +22,7 @@
 	<h2>Abonnés</h2>
 	{% if followed_list %}
 		{% for followed in followed_list %}
-			<p>followed.followed_user.username</p>
+			<p>{{ followed.user.username }}</p>
 		{% endfor %}
 	{% else %}
 		<p>Vous n'avez pas d'abonné</p>
