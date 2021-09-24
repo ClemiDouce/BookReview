@@ -8,6 +8,6 @@
 		{% csrf_token %}
 		<p>Etes vous sur de supprimer ce following ?</p>
 		<input type="submit" value="Supprimer">
-		<a href="{% url 'follow:unfollow' %}">Annuler</a>
+		<a href="{% url 'follows:abonnement' %}">Annuler</a>
 	</form>
 {% endblock %}
