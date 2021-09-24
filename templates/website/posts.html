@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load classname %}
+
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/posts.css' %}">
+{% endblock %}
+
+{% block title %}
+	Posts
+{% endblock %}
+
+{% block content %}
+	<h1>Vos posts</h1>
+	<div class="post-container">
+		{% if all_posts %}
+			{% for post in all_posts %}
+				{% with post|classname as modelname  %}
+					{% if modelname == 'Ticket' %}
+						<p>Je suis un ticket</p>
+					{% elif modelname == 'Review' %}
+						<p>Je suis une review</p>
+					{% endif %}
+				{% endwith %}
+			{% endfor %}
+
+		{% endif %}
+	</div>
+{% endblock %}

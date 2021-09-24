@@ -10,6 +10,7 @@ app_name = "website"
 urlpatterns = [
     path('', views.FluxView.as_view(), name="flux"),
     path('abonnement/', include('follows.urls')),
+    path('posts/', views.PostsView.as_view(), name="posts"),
     path('review/', include('review.urls')),
     path('ticket/', include('ticket.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
