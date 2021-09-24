@@ -7,6 +7,7 @@ name = "pypi"
 django = "*"
 pillow = "*"
 python-decouple = "*"
+django-glrm = "*"
 
 [dev-packages]
 
