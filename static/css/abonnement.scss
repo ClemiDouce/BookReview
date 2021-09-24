@@ -1,0 +1,71 @@
+body {
+  text-align: center;
+}
+
+#searchbar {
+  #searched-user {
+    width: 50%;
+    height: 30px;
+    text-align: center;
+    font-size: 18px;
+    border: 2px solid black;
+  }
+
+  #search-button {
+    background-color: white;
+    border-radius: 5px;
+    margin-left: 20px;
+    padding: 10px 50px;
+    border: 2px solid black;
+    font-weight: bold;
+  }
+}
+
+#abonnement-table {
+  margin: 10px auto;
+  width: 70%;
+  border: solid 2px black;
+  border-collapse: collapse;
+
+  tr {
+    height: 30px;
+    td {
+      border: 2px solid black;
+
+      &.user-cell {
+        //width: 70%;
+        text-align: left;
+      }
+
+      &.unfollow-button {
+        width: 20%;
+
+        a {
+          text-decoration: none;
+          color: black;
+          width: 100%;
+          height: 100%;
+
+          &:hover {
+            background-color: black;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+#abonne-table {
+  margin: 10px auto;
+  width: 70%;
+  border-collapse: collapse;
+  border: 2px solid black;
+  tr {
+    height: 30px;
+
+    td {
+      text-align: left;
+    }
+  }
+}

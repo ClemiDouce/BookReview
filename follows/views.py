@@ -1,13 +1,13 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, DeleteView
 
 from follows.models import UserFollows
 
 
 class AbonnementView(TemplateView):
     template_name = 'follows/abonnement.html'
-
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data()
@@ -29,5 +29,7 @@ class AbonnementView(TemplateView):
             context['msg'] = "No user found"
         return render(request, 'follows/abonnement.html', context)
 
-class UnfollowView(TemplateView):
-    template_name = "follows/abonnement.html"
+class UnfollowView(DeleteView):
+    model = UserFollows
+    template_name = "follows/unfollow.html"
+    success_url = reverse_lazy('follows:abonnement')
