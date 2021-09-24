@@ -1,14 +1,23 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
 	<title>Title</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+	{% block head %}{% endblock %}
 </head>
 <body>
-	<a href="{% url 'logout' %}">Deconnexion</a>
-	<a href="{% url 'ticket:ticket-index' %}">Gestion Ticket</a>
-	<a href="{% url 'review:review-index' %}">Gestion Review</a>
-	<a href="{% url 'follows:abonnement' %}">Gestion Abonnement</a>
+	<div id="top-bar">
+		<h1 id="logo">LITReview</h1>
+		<div id="navbar">
+			<a href="{% url 'flux' %}">Flux</a>
+			<a href="{% url 'ticket:ticket-index' %}">Posts</a>
+			<a href="{% url 'follows:abonnement' %}">Abonnements</a>
+			<a href="{% url 'logout' %}">Deconnexion</a>
+		</div>
+	</div>
 	{% block content %}
 
 	{% endblock %}

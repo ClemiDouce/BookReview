@@ -1,0 +1,20 @@
+#top-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: ". logo menu";
+  justify-items: center;
+  border: solid 1px black;
+
+  #logo {
+    grid-area: logo;
+    font-weight: bolder;
+    margin: 0px 0px;
+  }
+
+  #navbar {
+    grid-area: menu;
+    align-self: center;
+    justify-self: right;
+    margin-right: 20px;
+  }
+}
