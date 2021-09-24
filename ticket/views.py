@@ -1,5 +1,5 @@
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, DeleteView, UpdateView
+from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
 
 from ticket.models import Ticket
 
@@ -15,7 +15,7 @@ class CreateTicketView(CreateView):
     model = Ticket
     template_name = 'ticket/create-ticket.html'
     fields = ['title', 'description', 'image']
-    success_url = reverse_lazy('ticket:ticket-index')
+    success_url = reverse_lazy('flux')
 
     def form_valid(self, form):
         if self.request.user.is_authenticated:
@@ -33,3 +33,7 @@ class UpdateTicketView(UpdateView):
     template_name = 'ticket/update-ticket.html'
     fields = ['title', 'description', 'image']
     success_url = reverse_lazy('ticket:ticket-index')
+
+class DetailTicket(DetailView):
+    model = Ticket
+    template_name = "ticket/detail-ticket.html"

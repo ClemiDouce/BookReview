@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Creation Ticket{% endblock %}
+
+{% block content %}
+	<h1>{{ ticket.title }}</h1>
+	<p>{{ ticket.description }}</p>
+	<p>{{ ticket.user.username }}  -  {{ ticket.time_created }}</p>
+	<hr>
+	{% for review in ticket.review_set.all %}
+		<h3>{{ review.headline }}</h3>
+		<p>{{ review.body }}</p>
+		<p>Posté le : {{ review.time_created }} par {{ review.user.username }}</p>
+	{% endfor %}
+{% endblock %}
