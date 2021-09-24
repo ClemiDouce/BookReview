@@ -1,0 +1,63 @@
+body {
+  text-align: center;
+}
+
+#searchbar #searched-user {
+  width: 50%;
+  height: 30px;
+  text-align: center;
+  font-size: 18px;
+  border: 2px solid black;
+}
+#searchbar #search-button {
+  background-color: white;
+  border-radius: 5px;
+  margin-left: 20px;
+  padding: 10px 50px;
+  border: 2px solid black;
+  font-weight: bold;
+}
+
+#abonnement-table {
+  margin: 10px auto;
+  width: 70%;
+  border: solid 2px black;
+  border-collapse: collapse;
+}
+#abonnement-table tr {
+  height: 30px;
+}
+#abonnement-table tr td {
+  border: 2px solid black;
+}
+#abonnement-table tr td.user-cell {
+  text-align: left;
+}
+#abonnement-table tr td.unfollow-button {
+  width: 20%;
+}
+#abonnement-table tr td.unfollow-button a {
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  height: 100%;
+}
+#abonnement-table tr td.unfollow-button a:hover {
+  background-color: black;
+  color: white;
+}
+
+#abonne-table {
+  margin: 10px auto;
+  width: 70%;
+  border-collapse: collapse;
+  border: 2px solid black;
+}
+#abonne-table tr {
+  height: 30px;
+}
+#abonne-table tr td {
+  text-align: left;
+}
+
+/*# sourceMappingURL=abonnement.css.map */
