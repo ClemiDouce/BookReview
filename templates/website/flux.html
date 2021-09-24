@@ -1,6 +1,64 @@
 {% extends 'base.html' %}
+{% load rating %}
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/flux.css' %}">
+{% endblock %}
+
+{% block title %}
+	Flux
+{% endblock %}
 
 {% block content %}
-	<h1>Flux</h1>
+	<div id="post-container">
+		<div id="button-container">
+			<a href="{% url 'ticket:create-ticket' %}">Demander une critique</a>
+			<a href="{% url 'review:create-review-and-ticket' %}">Créer une critique</a>
+		</div>
+		<div class="ticket-container">
+			{% if tickets %}
+				{% for post in tickets %}
+					<div class="ticket-item">
+						<p>{% if post.user == request.user %}
+							Vous avez
+						{% else %}
+							{{ post.user.username }} à
+						{% endif %} demandé une critique</p>
+						<p>{{ post.time_created|date:'G:i, d F Y' }}</p>
+						<h2><a href="{% url "ticket:detail-ticket" post.pk %}">{{ post.title }}</a></h2>
+						<p>{{ post.description }}</p>
+						{% if post not in already_critic %}
+							<a href="{% url 'review:create-review-ticket' pk=post.pk %}">Critiquer</a>
+						{% endif %}
+					</div>
+				{% endfor %}
+			{% endif %}
 
+			<h2>Reviews</h2>
+			{% if reviews %}
+				{% for review in reviews %}
+					<div class="review-item">
+						<p>{% if review.user == request.user %}
+							Vous avez
+						{% else %}
+							{{ review.user.username }} à
+						{% endif %} publié une critique</p>
+						<h2>{{ review.headline }} -
+							{% for _ in review.rating|vrange %}&starf;{% endfor %}{% for _ in review.rating|vrange:5 %}
+								&star;{% endfor %}
+						</h2>
+						<p>{{ review.body }}</p>
+						<div class="ticket-item">
+							{% with tick=review.ticket %}
+								<p>Ticket - {{ tick.user.username }}</p>
+								<p>{{ tick.title }}</p>
+								<a href="{% url 'review:create-review-ticket' pk=tick.pk %}">Critiquer</a>
+							{% endwith %}
+						</div>
+					</div>
+				{% endfor %}
+			{% endif %}
+		</div>
+	</div>
 {% endblock %}

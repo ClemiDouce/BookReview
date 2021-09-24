@@ -1,0 +1,41 @@
+#post-container {
+  width: 70%;
+  margin: 10px auto;
+  .review-item {
+    border: black solid 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    .ticket-item {
+      display: grid;
+      border: 2px dotted lightseagreen;
+      margin: 3px 3px;
+      padding: 4px 4px;
+    }
+  }
+
+  .ticket-item {
+    border: red solid 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  #button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+
+    a {
+      padding: 5px 30px;
+      border: 1px solid black;
+      border-radius: 5px;
+      text-decoration-line: none;
+      color: black;
+
+      &:hover {
+        background-color: black;
+        color: white;
+      }
+    }
+  }
+}
