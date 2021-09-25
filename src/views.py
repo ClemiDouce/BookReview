@@ -13,10 +13,11 @@ class FluxView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         followed = [follow.followed_user for follow in UserFollows.objects.filter(user=self.request.user)]
-        critics = Review.objects.filter(user__in=[*followed, self.request.user]).order_by('-time_created')
-        context["tickets"] = Ticket.objects.filter(user__in=[*followed, self.request.user]).order_by('-time_created')
-        context["reviews"] = critics
-        context["already_critic"] = [critic.ticket for critic in critics]
+        all_reviews = Review.objects.filter(user__in=[*followed, self.request.user])
+        all_tickets = Ticket.objects.filter(user__in=[*followed, self.request.user])
+        all_posts = sorted([*all_reviews, *all_tickets], key=lambda post: post.time_created, reverse=True)
+        context['all_posts'] = all_posts
+        context["already_critic"] = [critic.ticket for critic in all_reviews.filter(user=self.request.user)]
         return context
 
 class SignupView(CreateView):
