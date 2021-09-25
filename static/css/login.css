@@ -1,0 +1,47 @@
+div#content {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  margin-top: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  height: 90vh;
+  align-items: start;
+}
+div#content #login-container {
+  display: grid;
+  justify-items: center;
+  padding-top: 5%;
+}
+div#content #login-container form {
+  width: 80%;
+}
+div#content #login-container form label {
+  display: none;
+}
+div#content #login-container form #username-input, div#content #login-container form #password-input {
+  border: 2px solid black;
+  width: 90%;
+  height: 30px;
+  text-align: center;
+}
+div#content #login-container form input[type=submit] {
+  float: right;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+div#content #signup-container {
+  text-align: center;
+  padding-top: 10%;
+}
+div#content #signup-container a {
+  border: 2px solid black;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+  border-radius: 5px;
+}
+
+/*# sourceMappingURL=login.css.map */

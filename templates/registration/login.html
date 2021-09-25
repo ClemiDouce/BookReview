@@ -1,19 +1,25 @@
-<!doctype html>
-<html lang="fr">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport"
-	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Login</title>
-</head>
-<body>
-	<h1>Login</h1>
-	<form method="POST">
-		{% csrf_token %}
-		{{ form.as_p }}
-		<input type="submit" value="Se connecter">
-	</form>
-	<a href="{% url 'signup' %}">Inscription</a>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block title %}
+	Login
+{% endblock %}
+
+{% block content %}
+	<div id="signup-container">
+		<h2>Inscrivez-vous maintenant</h2>
+		<a href="{% url 'signup' %}">S'inscrire</a>
+	</div>
+	<div id="login-container">
+		<h2>Connectez-vous</h2>
+		<form method="POST">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" value="Se connecter">
+		</form>
+	</div>
+{% endblock %}

@@ -1,14 +1,21 @@
 #top-bar {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-areas: ". logo menu";
+  grid-template-areas: "useraccount logo menu";
   justify-items: center;
   border: solid 1px black;
+
+  #user-account {
+    grid-area: useraccount;
+    margin: 0 0 0 10px;
+    align-self: center;
+    justify-self: left;
+  }
 
   #logo {
     grid-area: logo;
     font-weight: bolder;
-    margin: 0px 0px;
+    margin: 0 0;
   }
 
   #navbar {

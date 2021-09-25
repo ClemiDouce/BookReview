@@ -10,18 +10,21 @@
 </head>
 <body>
 	<div id="top-bar">
+		{% if request.user.is_authenticated %}<p id="user-account">Bonjour {{ request.user.username|upper }}</p>{% endif %}
 		<h1 id="logo">LITReview</h1>
+		{% if request.user.is_authenticated %}
 		<div id="navbar">
 			<a href="{% url 'flux' %}">Flux</a>
 			<a href="{% url 'posts' %}">Posts</a>
 			<a href="{% url 'follows:abonnement' %}">Abonnements</a>
 			<a href="{% url 'logout' %}">Deconnexion</a>
 		</div>
+		{% endif %}
 	</div>
+	<div id="content">
 	{% block content %}
 
 	{% endblock %}
-	<hr>
-	Utilisateur connecté : {{ request.user.username|upper }}
+	</div>
 </body>
 </html>
