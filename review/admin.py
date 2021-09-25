@@ -9,5 +9,6 @@ class ReviewAdmin(admin.ModelAdmin):
         'pk',
         'headline',
         'ticket',
-        'user'
+        'user',
+        'rating',
     )

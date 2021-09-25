@@ -38,7 +38,7 @@ class CreateReviewAndTicket(TemplateView):
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
-        ticket_form = CreateTicketForm(request.POST, prefix='ticket-form')
+        ticket_form = CreateTicketForm(request.POST, request.FILES, prefix='ticket-form')
         review_form = CreateReviewForm(request.POST, prefix='review-form')
         if ticket_form.is_valid() and review_form.is_valid():
             ticket = ticket_form.save(commit=False)
