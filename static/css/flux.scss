@@ -1,23 +1,32 @@
 #post-container {
   width: 70%;
-  margin: 10px auto;
+  margin: 20px auto 0 auto;
   .review-item {
     border: black solid 1px;
     margin-top: 5px;
     margin-bottom: 5px;
+    padding: 10px 10px;
 
     .ticket-item {
       display: grid;
-      border: 2px dotted lightseagreen;
+      border: 2px solid black;
       margin: 3px 3px;
       padding: 4px 4px;
+
+      &>a {
+        text-decoration: none;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 10px 20px;
+      }
     }
   }
 
   .ticket-item {
-    border: red solid 1px;
+    border: black solid 1px;
     margin-top: 10px;
     margin-bottom: 10px;
+    padding: 10px 10px;
   }
 
   #button-container {

@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load classname %}
+{% load rating %}
 
 {% block head %}
-	<link rel="stylesheet" type="text/css" href="{% static 'css/posts.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/flux.css' %}">
 {% endblock %}
 
 {% block title %}
@@ -12,18 +13,53 @@
 
 {% block content %}
 	<h1>Vos posts</h1>
-	<div class="post-container">
+	<div id="post-container">
 		{% if all_posts %}
-			{% for post in all_posts %}
-				{% with post|classname as modelname  %}
-					{% if modelname == 'Ticket' %}
-						<p>Je suis un ticket</p>
-					{% elif modelname == 'Review' %}
-						<p>Je suis une review</p>
-					{% endif %}
-				{% endwith %}
-			{% endfor %}
-
-		{% endif %}
+				{% for post in all_posts %}
+					{% with post|classname as postclass %}
+						{% if postclass == "Ticket" %}
+							<div class="ticket-item">
+								<p>{% if post.user == request.user %}
+									Vous avez
+								{% else %}
+									{{ post.user.username }} à
+								{% endif %} demandé une critique</p>
+								<p>{{ post.time_created|date:'G:i, d F Y' }}</p>
+								<h2><a href="{% url "ticket:detail-ticket" post.pk %}">{{ post.title }}</a></h2>
+								<p>{{ post.description }}</p>
+								{% if post not in already_critic %}
+									<a href="{% url 'review:create-review-ticket' pk=post.pk %}">Critiquer</a>
+								{% endif %}
+							</div>
+						{% elif postclass == "Review" %}
+							<div class="review-item">
+								<p>{% if post.user == request.user %}
+									Vous avez
+								{% else %}
+									{{ post.user.username }} à
+								{% endif %} publié une critique</p>
+								<h2>{{ post.headline }} -
+									{% for _ in post.rating|vrange %}&starf;{% endfor %}
+									{% for _ in post.rating|vrange:5 %}
+										&star;{% endfor %}
+								</h2>
+								<p>{{ post.body }}</p>
+								<div class="ticket-item">
+									{% with tick=post.ticket %}
+										<p>Ticket - {{ tick.user.username }}</p>
+										<p>{{ tick.title }}</p>
+										{% if tick.image %}
+											<img src="{{ tick.image.url }}" alt="" style="max-height:100px">
+										{% endif %}
+										{% if tick not in already_critic %}
+											<a href="{% url 'review:create-review-ticket' pk=tick.pk %}">Critiquer</a>
+										{% endif %}
+									{% endwith %}
+								</div>
+							</div>
+						{% endif %}
+					{% endwith %}
+				{% endfor %}
+			{% endif %}
 	</div>
 {% endblock %}
