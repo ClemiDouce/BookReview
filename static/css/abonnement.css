@@ -29,6 +29,7 @@ body {
 }
 #abonnement-table tr td {
   border: 2px solid black;
+  padding-left: 10px;
 }
 #abonnement-table tr td.user-cell {
   text-align: left;
@@ -58,6 +59,8 @@ body {
 }
 #abonne-table tr td {
   text-align: left;
+  border: 2px solid black;
+  padding-left: 10px;
 }
 
 /*# sourceMappingURL=abonnement.css.map */
