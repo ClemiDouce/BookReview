@@ -3,7 +3,9 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+from django.contrib.auth import views as authview
 from . import views
+from .forms import UserLoginForm
 
 app_name = "website"
 
@@ -13,7 +15,9 @@ urlpatterns = [
     path('posts/', views.PostsView.as_view(), name="posts"),
     path('review/', include('review.urls')),
     path('ticket/', include('ticket.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/login/', authview.LoginView.as_view(authentication_form=UserLoginForm), name="login"),
+    path('accounts/logout', authview.LogoutView.as_view(), name="logout"),
+    # path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/signup/', views.SignupView.as_view(), name="signup"),
     path('admin/', admin.site.urls),
 ]
