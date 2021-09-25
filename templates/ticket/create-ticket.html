@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" href="{% static 'css/crud.css' %}" type="text/css">
+{% endblock %}
 
 {% block title %}Creation Ticket{% endblock %}
 
 {% block content %}
-	<h1>Creation Ticket</h1>
+	<h1>Créer un ticket</h1>
 	<form method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ form.as_p }}
 		<input type="submit" value="Creer">
 	</form>
-
 {% endblock %}

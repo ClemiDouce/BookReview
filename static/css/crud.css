@@ -1,0 +1,29 @@
+form {
+  width: 60%;
+  margin: auto auto;
+}
+
+label[for], input {
+  display: block;
+}
+
+input, textarea {
+  border: 2px solid black;
+}
+
+#id_image {
+  display: none;
+}
+
+label[for=id_image] {
+  color: blue;
+  cursor: pointer;
+  padding: 10px 30px;
+  border: 1px solid black;
+  width: 100px;
+}
+label[for=id_image]:hover {
+  color: red;
+}
+
+/*# sourceMappingURL=crud.css.map */
