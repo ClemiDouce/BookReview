@@ -40,6 +40,15 @@ pip install -r requirements.txt
 
 Vérifier que tout les packages sont bien installé a l'aide de la commande `pip freeze`.
 
+# Creation du fichier d'environnement
+Dans le dossier racine, créez un fichier `.env`.
+Rendez vous sur le site https://djecrety.ir/, générez une clé.
+Ouvrez le fichier `.env` avec votre éditeur de texte de votre choix, et ajoutez a la première ligne :
+```text
+SECRET_KEY=django-insecure-[votre-clé-généré]
+```
+Enregistrez le fichier
+
 ## Lancement
 
 Pour lancer le serveur, entrez cette commande dans un invite de commande :
