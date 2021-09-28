@@ -1,9 +1,9 @@
-from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView
 
 from follows.models import UserFollows
 from review.models import Review
+from src.forms import SignupForm
 from ticket.models import Ticket
 
 
@@ -21,7 +21,7 @@ class FluxView(TemplateView):
         return context
 
 class SignupView(CreateView):
-    form_class = UserCreationForm
+    form_class = SignupForm
     template_name = "registration/signup.html"
     success_url = reverse_lazy('login')
 
@@ -36,4 +36,5 @@ class PostsView(TemplateView):
         all_posts = [*user_tickets, *user_reviews]
         all_posts.sort(key=lambda post: post.time_created, reverse=True)
         context['all_posts'] = all_posts
+        context["already_critic"] = [critic.ticket for critic in user_reviews]
         return context
