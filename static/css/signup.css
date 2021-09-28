@@ -1,0 +1,33 @@
+body {
+  text-align: center;
+}
+
+span, label {
+  display: none;
+}
+
+form {
+  width: 50%;
+  margin: 0 auto;
+}
+form input:not([type=submit]) {
+  text-align: center;
+  height: 30px;
+  width: 100%;
+  border: 2px solid black;
+}
+form #button-container {
+  display: flex;
+  justify-content: right;
+  gap: 10px;
+}
+form #button-container a, form #button-container input {
+  border: 2px solid black;
+  background-color: white;
+  text-decoration: none;
+  padding: 5px 20px;
+  border-radius: 5px;
+  color: black;
+}
+
+/*# sourceMappingURL=signup.css.map */
