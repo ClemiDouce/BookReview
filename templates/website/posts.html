@@ -42,17 +42,24 @@
 						</div>
 					{% elif postclass == "Review" %}
 						<div class="review-item">
-							<p>{% if post.user == request.user %}
-								Vous avez
-							{% else %}
-								{{ post.user.username }} à
-							{% endif %} publié une critique</p>
-							<h2>{{ post.headline }} -
-								{% for _ in post.rating|vrange %}&starf;{% endfor %}
-								{% for _ in post.rating|vrange:5 %}
-									&star;{% endfor %}
-							</h2>
-							<p>{{ post.body }}</p>
+							<div class="review-content">
+								<div>
+									<p>{% if post.user == request.user %}
+										Vous avez
+									{% else %}
+										{{ post.user.username }} à
+									{% endif %} publié une critique</p>
+									<h2>{{ post.headline }} -
+										{% for _ in post.rating|vrange %}&starf;{% endfor %}
+										{% for _ in post.rating|vrange:5 %}
+											&star;{% endfor %}
+									</h2>
+									<p>{{ post.body }}</p>
+								</div>
+								<div>
+									<p class="time-created">{{ post.time_created|date:'G:i, d F Y' }}</p>
+								</div>
+							</div>
 							<div class="ticket-item">
 								{% with tick=post.ticket %}
 									<p>Ticket - {{ tick.user.username }}</p>
