@@ -8,10 +8,18 @@
 {% block title %}Creation Ticket{% endblock %}
 
 {% block content %}
-	<h1>Créer un ticket</h1>
+	<h2>Créer un ticket</h2>
 	<form method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
-		{{ form.as_p }}
-		<input type="submit" value="Creer">
+		<label for="{{ form.title.id_for_label }}">Title</label>
+		{{ form.title }}
+		{{ form.description.label_tag}}
+		{{ form.description }}
+		<div id="button-container">
+			<p>Image</p>
+			<label for="{{ form.image.id_for_label }}">Télécharger fichier</label>
+			{{ form.image }}
+			<input type="submit" value="Envoyer">
+		</div>
 	</form>
 {% endblock %}
