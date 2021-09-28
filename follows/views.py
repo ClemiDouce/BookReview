@@ -18,15 +18,19 @@ class AbonnementView(TemplateView):
     def post(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
         try:
-            founded_user = User.objects.get(username=request.POST['searched-user'])
-            if founded_user != request.user:
-                context['msg'] = f"User {founded_user.username} added to your following list"
-                follow = UserFollows.objects.create(user=request.user, followed_user=founded_user)
-                follow.save()
-            else:
-                context['msg'] = "You can't follow yourself, dumbass"
+            found_user = User.objects.get(username=request.POST['searched-user'])
+            try:
+                UserFollows.objects.get(user=request.user, followed_user=found_user)
+                context['msg'] = f"Vous suivez déja {found_user.username}"
+            except UserFollows.DoesNotExist:
+                if found_user != request.user:
+                    context['msg'] = f"Vous suivez maintenant {found_user.username}"
+                    follow = UserFollows.objects.create(user=request.user, followed_user=found_user)
+                    follow.save()
+                else:
+                    context['msg'] = "Vous ne pouvez pas vous suivre"
         except User.DoesNotExist:
-            context['msg'] = "No user found"
+            context['msg'] = "Cet utilisateur n'existe pas"
         return render(request, 'follows/abonnement.html', context)
 
 class UnfollowView(DeleteView):
