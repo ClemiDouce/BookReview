@@ -13,11 +13,18 @@
   margin: 20px auto 0 auto;
 
   .review-item {
-
     border: black solid 1px;
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 10px 10px;
+
+    .crud-container {
+      margin-top: 10px;
+
+      a {
+        @include makebutton(5px, 10px);
+      }
+    }
 
     .review-content {
       display: flex;
@@ -53,7 +60,7 @@
       flex-direction: column;
 
       & > a {
-        @include makebutton($wpadding:10px, $hpadding:20px);
+        @include makebutton($wpadding: 10px, $hpadding: 20px);
       }
     }
 

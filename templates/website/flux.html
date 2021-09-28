@@ -29,9 +29,12 @@
 								{% else %}
 									{{ post.user.username }} à
 								{% endif %} demandé une critique</p>
-									<h2><a href="{% url "ticket:detail-ticket" post.pk %}">{{ post.title }}</a></h2>
+									<h2>{{ post.title }}</h2>
 									<p>{{ post.description }}</p>
-								</div>
+									{% if post.image %}
+										<img src="{{ post.image.url }}" alt="" style="max-height:100px">
+									{% endif %}
+									</div>
 								<div class="critic-button">
 									<p class="time-created">{{ post.time_created|date:'G:i, d F Y' }}</p>
 									{% if post not in already_critic %}

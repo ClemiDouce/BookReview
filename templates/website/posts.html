@@ -25,15 +25,19 @@
 								{% else %}
 									{{ post.user.username }} à
 								{% endif %} demandé une critique</p>
-
-								<h2><a href="{% url "ticket:detail-ticket" post.pk %}">{{ post.title }}</a></h2>
+								<h2>{{ post.title }}</h2>
 								<p>{{ post.description }}</p>
+								{% if post.image %}
+									<img src="{{ post.image.url }}" alt="" style="max-height:100px">
+								{% endif %}
 							</div>
 							<div class="critic-button">
 								<p>{{ post.time_created|date:'G:i, d F Y' }}</p>
 								{% if post not in already_critic %}
 									<a href="{% url 'review:create-review-ticket' pk=post.pk %}">Critiquer</a>
 								{% endif %}
+								<a href="{% url 'ticket:update-ticket' post.pk %}">Modifier</a>
+								<a href="{% url 'ticket:delete-ticket' post.pk %}">Supprimer</a>
 							</div>
 						</div>
 					{% elif postclass == "Review" %}
@@ -60,6 +64,10 @@
 										<a href="{% url 'review:create-review-ticket' pk=tick.pk %}">Critiquer</a>
 									{% endif %}
 								{% endwith %}
+							</div>
+							<div class="crud-container">
+								<a href="{% url 'review:update-review' post.pk %}">Modifier</a>
+								<a href="{% url 'review:delete-review' post.pk %}">Supprimer</a>
 							</div>
 						</div>
 					{% endif %}

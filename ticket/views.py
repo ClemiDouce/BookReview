@@ -26,14 +26,10 @@ class CreateTicketView(CreateView):
 class DeleteTicketView(DeleteView):
     model = Ticket
     template_name = 'ticket/delete-ticket.html'
-    success_url = reverse_lazy('ticket:ticket-index')
+    success_url = reverse_lazy('posts')
 
 class UpdateTicketView(UpdateView):
     model = Ticket
     template_name = 'ticket/update-ticket.html'
     fields = ['title', 'description', 'image']
-    success_url = reverse_lazy('ticket:ticket-index')
-
-class DetailTicket(DetailView):
-    model = Ticket
-    template_name = "ticket/detail-ticket.html"
+    success_url = reverse_lazy('posts')

@@ -8,6 +8,6 @@
 		{% csrf_token %}
 		<p>Etes vous sur de supprimer ce ticket ?</p>
 		<input type="submit" value="Supprimer">
-		<a href="{% url 'ticket:ticket-index' %}">Annuler</a>
+		<a href="{% url 'posts' %}">Annuler</a>
 	</form>
 {% endblock %}

@@ -50,7 +50,6 @@ class CreateReviewAndTicket(TemplateView):
             review.save()
             return redirect(reverse('flux'))
         else:
-            print('PROBLEM')
             return render(request, self.template_name, {
                 'ticket-form': ticket_form,
                 'review-form': review_form
@@ -79,10 +78,10 @@ class CreateReviewOnTicketView(CreateView):
 class DeleteReviewView(DeleteView):
     model = Review
     template_name = 'review/delete-review.html'
-    success_url = reverse_lazy('review:review-index')
+    success_url = reverse_lazy('posts')
 
 class UpdateReviewView(UpdateView):
     model = Review
     template_name = 'review/update-review.html'
-    fields = ['title', 'description', 'image']
-    success_url = reverse_lazy('review:review-index')
+    fields = ['headline', 'body', 'rating']
+    success_url = reverse_lazy('posts')
