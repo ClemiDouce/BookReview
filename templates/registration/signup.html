@@ -1,19 +1,24 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport"
-	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Inscription</title>
-</head>
-<body>
-	<h1>Inscription</h1>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+	Inscription
+{% endblock %}
+
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+{% endblock %}
+
+{% block content %}
+	<h1>Inscrivez-vous</h1>
 	<form method="POST">
 		{% csrf_token %}
-		{{ form.as_p }}
-		<input type="submit" value="Enregister">
+		<input type="text" placeholder="Username" id="{{ form.username.id_for_label }}">
+		{{ form.password1 }}
+		{{ form.password2 }}
+		<div id="button-container">
+			<a href="{% url 'login' %}">Retourner</a>
+			<input type="submit" value="S'inscrire">
+		</div>
 	</form>
-	<a href="{% url 'login' %}">Retour</a>
-</body>
-</html>
+{% endblock %}
