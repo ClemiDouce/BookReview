@@ -1,26 +1,50 @@
+h2 {
+  text-align: center;
+}
+
 form {
   width: 60%;
   margin: auto auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-
-label[for], input {
+form label {
   display: block;
 }
 
-input, textarea {
+input:not([type=submit]), textarea {
   border: 2px solid black;
+  width: 100%;
 }
 
 #id_image {
   display: none;
 }
 
+#button-container {
+  display: flex;
+  flex-direction: column;
+}
+#button-container input {
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  align-self: flex-end;
+}
+
 label[for=id_image] {
   color: blue;
   cursor: pointer;
-  padding: 10px 30px;
-  border: 1px solid black;
-  width: 100px;
+  width: 20%;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  align-self: flex-start;
 }
 label[for=id_image]:hover {
   color: red;

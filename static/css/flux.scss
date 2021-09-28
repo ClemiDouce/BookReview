@@ -1,11 +1,28 @@
+@mixin makebutton($wpadding:20px, $hpadding:10px) {
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  padding: $wpadding $hpadding;
+  text-decoration: none;
+  text-align: center;
+}
+
 #post-container {
   width: 70%;
   margin: 20px auto 0 auto;
+
   .review-item {
+
     border: black solid 1px;
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 10px 10px;
+
+    .review-content {
+      display: flex;
+      justify-content: space-between;
+    }
 
     .ticket-item {
       display: grid;
@@ -13,7 +30,7 @@
       margin: 3px 3px;
       padding: 4px 4px;
 
-      &>a {
+      & > a {
         text-decoration: none;
         border: 1px solid black;
         border-radius: 5px;
@@ -23,10 +40,23 @@
   }
 
   .ticket-item {
+    display: flex;
     border: black solid 1px;
     margin-top: 10px;
     margin-bottom: 10px;
-    padding: 10px 10px;
+    padding: 2px 10px;
+    justify-content: space-between;
+
+    .critic-button {
+      display: flex;
+      gap: 20px;
+      flex-direction: column;
+
+      & > a {
+        @include makebutton($wpadding:10px, $hpadding:20px);
+      }
+    }
+
   }
 
   #button-container {

@@ -1,26 +1,53 @@
+@mixin makebutton {
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+}
+
+h2 {
+  text-align: center;
+}
+
 form {
   width: 60%;
   margin: auto auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  label {
+    display: block;
+  }
 }
 
-label[for], input {
-  display: block;
-}
-
-input, textarea {
+input:not([type=submit]), textarea {
   border: 2px solid black;
+  width: 100%;
 }
+
 
 #id_image {
   display: none;
 }
 
+#button-container {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    @include makebutton;
+    align-self: flex-end;
+  }
+}
+
 label[for=id_image] {
   color: blue;
   cursor: pointer;
-  padding: 10px 30px;
-  border: 1px solid black;
-  width: 100px;
+  width: 20%;
+  @include makebutton;
+  align-self: flex-start;
 
   &:hover {
     color: red;
