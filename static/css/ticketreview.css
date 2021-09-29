@@ -1,0 +1,67 @@
+h1 {
+  text-align: center;
+}
+
+form {
+  width: 60%;
+  margin: 0 auto;
+}
+
+textarea {
+  resize: none;
+}
+
+input[type=file] {
+  display: none;
+}
+
+input:not([type=submit]), textarea {
+  border: 2px solid black;
+}
+
+#ticket-form {
+  border: 2px solid black;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  gap: 10px;
+}
+#ticket-form label[for=id_ticket-form-image] {
+  color: blue;
+  cursor: pointer;
+  width: 20%;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+}
+#ticket-form label[for=id_ticket-form-image]:hover {
+  color: red;
+}
+
+#review-form {
+  border: 2px solid black;
+  border-top-style: none;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#review-form input[type=number] {
+  max-width: 50px;
+}
+#review-form input[type=submit] {
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  align-self: flex-end;
+}
+#review-form h2 {
+  margin-top: 0;
+}
+
+/*# sourceMappingURL=ticketreview.css.map */

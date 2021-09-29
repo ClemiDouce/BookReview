@@ -1,0 +1,27 @@
+#content {
+  width: 80%;
+  margin: 0 auto;
+}
+#content #ticket-show {
+  border: 2px solid black;
+}
+#content #ticket-show #ticket-item {
+  border: 2px solid black;
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+}
+#content #ticket-show #ticket-item #time-created {
+  font-size: 12px;
+}
+#content form {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  border-top-style: none;
+}
+
+/*# sourceMappingURL=create-update-review.css.map */
