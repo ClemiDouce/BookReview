@@ -8,7 +8,7 @@
 {% block title %}Creation Ticket{% endblock %}
 
 {% block content %}
-	<h2>Créer un ticket</h2>
+	<h2 id="title">Créer un ticket</h2>
 	<form method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
 		<label for="{{ form.title.id_for_label }}">Title</label>

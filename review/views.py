@@ -72,7 +72,6 @@ class CreateReviewOnTicketView(CreateView):
         context = super().get_context_data(**kwargs)
         ticket = Ticket.objects.get(pk=self.kwargs.get('pk'))
         context['ticket'] = ticket
-        context['review_list'] = ticket.review_set.all()
         return context
 
 class DeleteReviewView(DeleteView):

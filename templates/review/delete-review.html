@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" href="{% static 'css/delete.css' %}">
+{% endblock %}
 
 {% block title %}Creation Review{% endblock %}
 
 {% block content %}
-	<h1>Supprimer review</h1>
+	<h2 id="title">Supprimer review</h2>
 	<form method="POST">
 		{% csrf_token %}
-		<p>Etes vous sur de supprimer ce review ?</p>
-		<input type="submit" value="Supprimer">
-		<a href="{% url 'ticket:ticket-index' %}">Annuler</a>
+		<p>Etes vous sur de supprimer cette review ?</p>
+		<input class="button" type="submit" value="Supprimer">
+		<a class="button" href="{% url 'ticket:ticket-index' %}">Annuler</a>
 	</form>
 {% endblock %}

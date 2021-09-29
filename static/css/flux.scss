@@ -8,9 +8,14 @@
   text-align: center;
 }
 
+h2 {
+  text-align: center;
+}
+
 #post-container {
   width: 70%;
   margin: 20px auto 0 auto;
+  max-width: 800px;
 
   .review-item {
     border: black solid 1px;

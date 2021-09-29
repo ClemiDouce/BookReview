@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" href="{% static 'css/delete.css' %}">
+{% endblock %}
 
 {% block title %}Creation Ticket{% endblock %}
 
 {% block content %}
-	<h1>Supprimer ticket</h1>
+	<h2 id="title">Supprimer ticket</h2>
 	<form method="POST">
 		{% csrf_token %}
 		<p>Etes vous sur de supprimer ce ticket ?</p>
-		<input type="submit" value="Supprimer">
-		<a href="{% url 'posts' %}">Annuler</a>
+		<input class="button" type="submit" value="Supprimer">
+		<a class="button" href="{% url 'posts' %}">Annuler</a>
 	</form>
 {% endblock %}

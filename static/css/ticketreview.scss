@@ -1,0 +1,71 @@
+@mixin makebutton {
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  width: 60%;
+  margin: 0 auto
+}
+
+textarea {
+  resize: none;
+}
+
+
+input[type=file] {
+  display: none;
+}
+
+input:not([type=submit]), textarea {
+  border: 2px solid black;
+}
+
+#ticket-form {
+  border: 2px solid black;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  gap: 10px;
+
+  label[for=id_ticket-form-image] {
+    color: blue;
+    cursor: pointer;
+    width: 20%;
+    @include makebutton;
+
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+#review-form {
+  border: 2px solid black;
+  border-top-style: none;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  input[type=number] {
+    max-width: 50px;
+  }
+
+  input[type=submit] {
+    @include makebutton;
+    align-self: flex-end;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+}

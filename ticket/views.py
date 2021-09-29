@@ -1,6 +1,7 @@
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
 
+from ticket.forms import UpdateTicketForm
 from ticket.models import Ticket
 
 
@@ -30,6 +31,6 @@ class DeleteTicketView(DeleteView):
 
 class UpdateTicketView(UpdateView):
     model = Ticket
+    form_class = UpdateTicketForm
     template_name = 'ticket/update-ticket.html'
-    fields = ['title', 'description', 'image']
     success_url = reverse_lazy('posts')

@@ -25,20 +25,21 @@
 							<div class="ticket-item">
 								<div class="post-content">
 									<p>{% if post.user == request.user %}
-									Vous avez
-								{% else %}
-									{{ post.user.username }} à
-								{% endif %} demandé une critique</p>
+										Vous avez
+									{% else %}
+										{{ post.user.username }} à
+									{% endif %} demandé une critique</p>
 									<h2>{{ post.title }}</h2>
 									<p>{{ post.description }}</p>
 									{% if post.image %}
 										<img src="{{ post.image.url }}" alt="" style="max-height:100px">
 									{% endif %}
-									</div>
+								</div>
 								<div class="critic-button">
 									<p class="time-created">{{ post.time_created|date:'G:i, d F Y' }}</p>
 									{% if post not in already_critic %}
-										<a href="{% url 'review:create-review-ticket' pk=post.pk %}">Creer une critique</a>
+										<a href="{% url 'review:create-review-ticket' pk=post.pk %}">Creer une
+											critique</a>
 									{% endif %}
 								</div>
 							</div>
@@ -70,7 +71,8 @@
 											<img src="{{ tick.image.url }}" alt="" style="max-height:100px">
 										{% endif %}
 										{% if tick not in already_critic %}
-											<a href="{% url 'review:create-review-ticket' pk=tick.pk %}">Creer une critique</a>
+											<a href="{% url 'review:create-review-ticket' pk=tick.pk %}">Creer une
+												critique</a>
 										{% endif %}
 									{% endwith %}
 								</div>

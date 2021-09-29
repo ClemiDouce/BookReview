@@ -4,7 +4,7 @@
 
 {% block content %}
 	<a href="{% url 'ticket:create-ticket' %}">Creer ticket</a>
-	<h1>Ticket List</h1>
+	<h2 id="title">Ticket List</h2>
 	{% for ticket in ticket_list %}
 		<h2>{{ ticket.title }}</h2>
 		<p>

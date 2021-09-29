@@ -1,9 +1,34 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" href="{% static 'css/create-update-review.css' %}">
+{% endblock %}
 
 {% block title %}Update Ticket{% endblock %}
 
 {% block content %}
-	<h1>Update Ticket</h1>
+	<h2 id="title">Modifier critique</h2>
+	<div id="ticket-show">
+		<p>Vous êtes en train de poster en réponse à</p>
+		<div id="ticket-item">
+			<div class="post-content">
+				<p>{% if review.ticket.user == request.user %}
+					Vous avez
+				{% else %}
+					{{ review.ticket.user.username }} à
+				{% endif %} demandé une critique</p>
+				<h2>{{ review.ticket.title }}</h2>
+				<p>{{ review.ticket.description }}</p>
+				{% if review.ticket.image %}
+					<img src="{{ review.ticket.image.url }}" alt="" style="max-height:100px">
+				{% endif %}
+			</div>
+			<div class="critic-button">
+				<p id="time-created">{{ review.ticket.time_created|date:'G:i, d F Y' }}</p>
+			</div>
+		</div>
+	</div>
 	<form method="POST">
 		{% csrf_token %}
 		{{ form.as_p }}

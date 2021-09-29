@@ -1,13 +1,28 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Update Ticket{% endblock %}
 
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/crud.css' %}">
+{% endblock %}
+
 {% block content %}
-	<h1>Update Ticket</h1>
+	<h2 id="title">Modifier votre ticket</h2>
 	<form method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
-		{{ form.as_p }}
-		<input type="submit" value="Modifier">
+		{{ form.title.label_tag }}
+		{{ form.title }}
+		{{ form.description.label_tag }}
+		{{ form.description }}
+		{% if form.instance.image %}
+			<img src="{{ form.instance.image.url }}" alt="salut" style="max-width: 200px;">
+		{% endif %}
+		<div id="button-container">
+			<label for="{{ form.image.id_for_label }}">Télécharger fichier</label>
+			{{ form.image }}
+			<input type="submit" value="Modifier">
+		</div>
 	</form>
 
 {% endblock %}
