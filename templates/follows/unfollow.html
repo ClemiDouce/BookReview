@@ -1,13 +1,19 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" href="{% static 'css/delete.css' %}">
+{% endblock %}
+
 {% block title %}Suppression Follow{% endblock %}
 
 {% block content %}
-	<h1>Supprimer Follow</h1>
+	<h2 id="title">Supprimer Follow</h2>
 	<form method="POST">
 		{% csrf_token %}
 		<p>Etes vous sur de supprimer ce following ?</p>
-		<input type="submit" value="Supprimer">
-		<a href="{% url 'follows:abonnement' %}">Annuler</a>
+		<input class="button" type="submit" value="Supprimer">
+		<a class="button" href="{% url 'follows:abonnement' %}">Annuler</a>
 	</form>
 {% endblock %}

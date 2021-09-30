@@ -9,6 +9,9 @@ span, label {
 form {
   width: 50%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 form input:not([type=submit]) {
   text-align: center;

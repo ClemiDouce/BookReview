@@ -26,10 +26,16 @@
 #content {
   border: 2px solid black;
   border-top-style: none;
+  padding: 5px 5px;
 }
 
-h2 {
+h2#title {
   margin-top: 0;
+  text-align: center;
+}
+
+textarea {
+  resize: none;
 }
 
 /*# sourceMappingURL=base.css.map */
