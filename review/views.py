@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView, TemplateView
 
-from follows.models import UserFollows
 from review.forms import CreateReviewForm
 from review.models import Review
 from ticket.forms import CreateTicketForm
@@ -16,6 +15,7 @@ class ListReviewView(ListView):
     def get_queryset(self):
         return Review.objects.filter(user=self.request.user)
 
+
 class CreateReviewView(CreateView):
     model = Review
     template_name = 'review/create-review.html'
@@ -27,6 +27,7 @@ class CreateReviewView(CreateView):
             form.instance.user = self.request.user
 
         return super().form_valid(form)
+
 
 class CreateReviewAndTicket(TemplateView):
     template_name = 'review/review-and-ticket.html'
@@ -56,7 +57,6 @@ class CreateReviewAndTicket(TemplateView):
             })
 
 
-
 class CreateReviewOnTicketView(CreateView):
     model = Review
     form_class = CreateReviewForm
@@ -74,10 +74,12 @@ class CreateReviewOnTicketView(CreateView):
         context['ticket'] = ticket
         return context
 
+
 class DeleteReviewView(DeleteView):
     model = Review
     template_name = 'review/delete-review.html'
     success_url = reverse_lazy('posts')
+
 
 class UpdateReviewView(UpdateView):
     model = Review

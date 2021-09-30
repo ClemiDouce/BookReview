@@ -33,6 +33,7 @@ class AbonnementView(TemplateView):
             context['msg'] = "Cet utilisateur n'existe pas"
         return render(request, 'follows/abonnement.html', context)
 
+
 class UnfollowView(DeleteView):
     model = UserFollows
     template_name = "follows/unfollow.html"

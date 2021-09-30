@@ -1,7 +1,5 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django import forms
-from django.contrib.auth.models import User
 
 
 class UserLoginForm(AuthenticationForm):
@@ -21,11 +19,12 @@ class UserLoginForm(AuthenticationForm):
     password = forms.CharField(
         label="",
         widget=forms.PasswordInput(
-        attrs={
-            "id": "password-input",
-            "placeholder": "Mot de passe"
-        }
-    ))
+            attrs={
+                "id": "password-input",
+                "placeholder": "Mot de passe"
+            }
+        ))
+
 
 class SignupForm(UserCreationForm):
     def __init__(self, *args, **kwargs):

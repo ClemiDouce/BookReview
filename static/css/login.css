@@ -8,6 +8,8 @@ div#content {
   height: 90vh;
   align-items: start;
 }
+
+/*noinspection ALL*/
 div#content #login-container {
   display: grid;
   justify-items: center;
@@ -32,6 +34,8 @@ div#content #login-container form input[type=submit] {
   padding: 10px 20px;
   float: right;
 }
+
+/*noinspection ALL*/
 div#content #signup-container {
   text-align: center;
   padding-top: 10%;

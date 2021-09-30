@@ -20,6 +20,7 @@ class FluxView(TemplateView):
         context["already_critic"] = [critic.ticket for critic in all_reviews.filter(user=self.request.user)]
         return context
 
+
 class SignupView(CreateView):
     form_class = SignupForm
     template_name = "registration/signup.html"

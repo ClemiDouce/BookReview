@@ -8,11 +8,10 @@
     #ticket-item {
       border: 2px solid black;
       width: 70%;
-      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       padding: 5px 10px;
-      margin-bottom: 20px;
+      margin: 0 auto 20px;
 
       #time-created {
         font-size: 12px;
