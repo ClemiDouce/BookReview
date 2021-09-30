@@ -8,27 +8,6 @@ from ticket.forms import CreateTicketForm
 from ticket.models import Ticket
 
 
-class ListReviewView(ListView):
-    model = Review
-    template_name = 'review/list-review.html'
-
-    def get_queryset(self):
-        return Review.objects.filter(user=self.request.user)
-
-
-class CreateReviewView(CreateView):
-    model = Review
-    template_name = 'review/create-review.html'
-    fields = ['title', 'description', 'image']
-    success_url = reverse_lazy('ticket:ticket-index')
-
-    def form_valid(self, form):
-        if self.request.user.is_authenticated:
-            form.instance.user = self.request.user
-
-        return super().form_valid(form)
-
-
 class CreateReviewAndTicket(TemplateView):
     template_name = 'review/review-and-ticket.html'
 
