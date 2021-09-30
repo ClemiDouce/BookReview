@@ -28,6 +28,10 @@ class UserLoginForm(AuthenticationForm):
     ))
 
 class SignupForm(UserCreationForm):
+    def __init__(self, *args, **kwargs):
+        super(SignupForm, self).__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs.update({'placeholder': 'Username'})
+
     password1 = forms.CharField(
         label="",
         widget=forms.PasswordInput(

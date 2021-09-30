@@ -12,8 +12,10 @@
 {% block content %}
 	<h1>Inscrivez-vous</h1>
 	<form method="POST">
+		{{ form.errors }}
 		{% csrf_token %}
-		<input type="text" placeholder="Username" id="{{ form.username.id_for_label }}">
+{#		<input type="text" placeholder="Username" id="{{ form.username.id_for_label }}">#}
+		{{ form.username }}
 		{{ form.password1 }}
 		{{ form.password2 }}
 		<div id="button-container">
