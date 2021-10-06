@@ -1,3 +1,11 @@
+@mixin makebutton {
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+}
+
 #content {
   width: 80%;
   margin: 0 auto;
@@ -19,10 +27,30 @@
     }
   }
 
-  form {
-    display: flex;
-    flex-direction: column;
+  #review-form {
     border: 2px solid black;
     border-top-style: none;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    input[type=number] {
+      max-width: 50px;
+    }
+
+    input[type=submit] {
+      @include makebutton;
+      align-self: flex-end;
+    }
+
+    textarea, input:not([type=submit]) {
+      border: 2px solid black;
+      border-radius: 5px;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
   }
 }

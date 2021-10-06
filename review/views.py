@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
-from django.views.generic import CreateView, ListView, DeleteView, UpdateView, TemplateView
+from django.views.generic import CreateView, DeleteView, UpdateView, TemplateView
 
 from review.forms import CreateReviewForm
 from review.models import Review
@@ -18,7 +18,11 @@ class CreateReviewAndTicket(TemplateView):
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
-        ticket_form = CreateTicketForm(request.POST, request.FILES, prefix='ticket-form')
+        ticket_form = CreateTicketForm(
+            request.POST,
+            request.FILES,
+            prefix='ticket-form'
+        )
         review_form = CreateReviewForm(request.POST, prefix='review-form')
         if ticket_form.is_valid() and review_form.is_valid():
             ticket = ticket_form.save(commit=False)

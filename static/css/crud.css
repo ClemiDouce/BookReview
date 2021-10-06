@@ -13,7 +13,7 @@ form label {
   display: block;
 }
 
-input:not([type=submit]), textarea {
+input[type=text], textarea {
   border: 2px solid black;
   width: 100%;
 }
@@ -22,13 +22,16 @@ input:not([type=submit]), textarea {
   display: flex;
   flex-direction: column;
 }
-#button-container input {
+#button-container input[type=submit] {
   border: 2px solid black;
   border-radius: 5px;
   background-color: white;
   color: black;
   padding: 10px 20px;
   align-self: flex-end;
+}
+#button-container #id_image {
+  display: none;
 }
 
 label[for=id_image] {

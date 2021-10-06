@@ -1,0 +1,4 @@
+[flake8]
+exclude = migrations, templates
+max-complexity = 10
+max-line-length = 100

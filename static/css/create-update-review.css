@@ -2,13 +2,9 @@
   width: 80%;
   margin: 0 auto;
 }
-
-/*noinspection ALL*/
 #content #ticket-show {
   border: 2px solid black;
 }
-
-/*noinspection ALL*/
 #content #ticket-show #ticket-item {
   border: 2px solid black;
   width: 70%;
@@ -17,16 +13,34 @@
   padding: 5px 10px;
   margin: 0 auto 20px;
 }
-
-/*noinspection ALL*/
 #content #ticket-show #ticket-item #time-created {
   font-size: 12px;
 }
-#content form {
-  display: flex;
-  flex-direction: column;
+#content #review-form {
   border: 2px solid black;
   border-top-style: none;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#content #review-form input[type=number] {
+  max-width: 50px;
+}
+#content #review-form input[type=submit] {
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  align-self: flex-end;
+}
+#content #review-form textarea, #content #review-form input:not([type=submit]) {
+  border: 2px solid black;
+  border-radius: 5px;
+}
+#content #review-form h2 {
+  margin-top: 0;
 }
 
 /*# sourceMappingURL=create-update-review.css.map */

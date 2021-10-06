@@ -27,16 +27,25 @@
   justify-content: space-between;
 }
 #post-container .review-item .ticket-item {
-  display: grid;
+  display: flex;
   border: 2px solid black;
   margin: 3px 3px;
-  padding: 4px 4px;
+  padding: 10px 10px;
 }
-#post-container .review-item .ticket-item > a {
-  text-decoration: none;
-  border: 1px solid black;
+#post-container .review-item .ticket-item .ticket-review-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#post-container .review-item .ticket-item .ticket-review-button a {
+  border: 2px solid black;
   border-radius: 5px;
+  background-color: white;
+  color: black;
   padding: 10px 20px;
+  text-decoration: none;
+  text-align: center;
+  max-height: 20px;
 }
 #post-container .ticket-item {
   display: flex;

@@ -22,23 +22,22 @@ form {
   }
 }
 
-input:not([type=submit]), textarea {
+input[type=text], textarea {
   border: 2px solid black;
   width: 100%;
-}
-
-
-#id_image {
-  display: none;
 }
 
 #button-container {
   display: flex;
   flex-direction: column;
 
-  input {
+  input[type=submit] {
     @include makebutton;
     align-self: flex-end;
+  }
+
+  #id_image {
+    display: none;
   }
 }
 

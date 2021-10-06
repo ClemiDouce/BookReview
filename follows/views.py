@@ -25,7 +25,10 @@ class AbonnementView(TemplateView):
             except UserFollows.DoesNotExist:
                 if found_user != request.user:
                     context['msg'] = f"Vous suivez maintenant {found_user.username}"
-                    follow = UserFollows.objects.create(user=request.user, followed_user=found_user)
+                    follow = UserFollows.objects.create(
+                        user=request.user,
+                        followed_user=found_user
+                    )
                     follow.save()
                 else:
                     context['msg'] = "Vous ne pouvez pas vous suivre"

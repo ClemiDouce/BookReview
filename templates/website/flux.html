@@ -65,15 +65,19 @@
 								</div>
 								<div class="ticket-item">
 									{% with tick=post.ticket %}
-										<p>Ticket - {{ tick.user.username }}</p>
-										<p>{{ tick.title }}</p>
-										{% if tick.image %}
-											<img src="{{ tick.image.url }}" alt="" style="max-height:100px">
-										{% endif %}
+										<div class="ticket-review-content">
+											<p>Ticket - {{ tick.user.username }}</p>
+											<p>{{ tick.title }}</p>
+											{% if tick.image %}
+												<img src="{{ tick.image.url }}" alt="" style="max-height:100px">
+											{% endif %}
+										</div>
+										<div class="ticket-review-button">
 										{% if tick not in already_critic %}
 											<a href="{% url 'review:create-review-ticket' pk=tick.pk %}">Creer une
 												critique</a>
 										{% endif %}
+										</div>
 									{% endwith %}
 								</div>
 							</div>

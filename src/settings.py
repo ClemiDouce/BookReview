@@ -5,7 +5,6 @@ from decouple import config
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-from django.urls import reverse
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -100,7 +99,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'fr-fr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Paris'
 
 USE_I18N = True
 
@@ -131,5 +130,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 PUBLIC_VIEWS = [
     'django.contrib.auth.views.LoginView',
-    'src.views.SignupView'
+    'src.views.SignupView',
+]
+
+PUBLIC_PATHS = [
+    '/admin/'
 ]

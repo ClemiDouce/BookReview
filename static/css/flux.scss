@@ -34,16 +34,20 @@
     }
 
     .ticket-item {
-      display: grid;
+      display: flex;
       border: 2px solid black;
       margin: 3px 3px;
-      padding: 4px 4px;
+      padding: 10px 10px;
 
-      & > a {
-        text-decoration: none;
-        border: 1px solid black;
-        border-radius: 5px;
-        padding: 10px 20px;
+      .ticket-review-button {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        a {
+          @include makebutton($wpadding: 10px, $hpadding: 20px);
+          max-height: 20px;
+        }
       }
     }
   }

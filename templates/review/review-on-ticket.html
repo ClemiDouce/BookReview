@@ -30,8 +30,16 @@
 	</div>
 	<form method="POST">
 		{% csrf_token %}
-		{{ form.as_p }}
-		<input type="submit" value="Creer">
+		<div id="review-form">
+			<h2>Critique</h2>
+			<label for="{{ form.headline.id_for_label }}">Titre</label>
+			{{ form.headline }}
+			{{ form.rating.label_tag }}
+			{{ form.rating }}
+			<label for="{{ form.body.id_for_label }}">Description</label>
+			{{ form.body }}
+			<input type="submit" value="Modifier">
+		</div>
 	</form>
 
 {% endblock %}
